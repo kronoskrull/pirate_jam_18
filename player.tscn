@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://cct7pd3yo2kxk"]
+
+[ext_resource type="Script" uid="uid://i1yu3pbvf566" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://dte4o1vhq4j72" path="res://sketch_player1.png" id="2_onrkg"]
+[ext_resource type="PackedScene" uid="uid://nxsgtvyjui2s" path="res://flippable_sprite.tscn" id="2_sweqy"]
+[ext_resource type="Script" uid="uid://dmh3tq7bo3bpo" path="res://flippable_hitbox.gd" id="4_2hs0m"]
+[ext_resource type="PackedScene" uid="uid://4t60jr6i5bnr" path="res://flippable_shape.tscn" id="5_1jxqw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
+size = Vector2(30, 66)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dw050"]
+
+[node name="player" type="CharacterBody2D"]
+physics_interpolation_mode = 1
+script = ExtResource("1_onrkg")
+
+[node name="flippable_sprite" parent="." instance=ExtResource("2_sweqy")]
+texture = ExtResource("2_onrkg")
+
+[node name="ecb" type="CollisionShape2D" parent="."]
+physics_interpolation_mode = 1
+shape = SubResource("RectangleShape2D_onrkg")
+debug_color = Color(0.12777764, 0.6458557, 0.10785591, 0.41960785)
+
+[node name="hitboxes" type="Node2D" parent="."]
+
+[node name="basic_a" type="Area2D" parent="hitboxes" node_paths=PackedStringArray("flippable_sprite")]
+script = ExtResource("4_2hs0m")
+flippable_sprite = NodePath("../../flippable_sprite")
+
+[node name="flippable_shape" parent="hitboxes/basic_a" node_paths=PackedStringArray("flippable_sprite") instance=ExtResource("5_1jxqw")]
+position = Vector2(26, -14)
+shape = SubResource("RectangleShape2D_dw050")
+disabled = true
+debug_color = Color(1, 0, 0, 0.41960785)
+flippable_sprite = NodePath("../../../flippable_sprite")
+default_position = Vector2(26, -14)
