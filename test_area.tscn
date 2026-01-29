@@ -1,0 +1,90 @@
+[gd_scene load_steps=9 format=3 uid="uid://sat3u8wlvcfn"]
+
+[ext_resource type="PackedScene" uid="uid://cct7pd3yo2kxk" path="res://player.tscn" id="1_64fjj"]
+[ext_resource type="Texture2D" uid="uid://dsvk6t0a8pje1" path="res://assets/BG.png" id="2_vt2yd"]
+[ext_resource type="Texture2D" uid="uid://2mqekjxkugpa" path="res://assets/Background 1.png" id="3_xdpsd"]
+[ext_resource type="Texture2D" uid="uid://b0k8undwbny5n" path="res://assets/Middle.png" id="4_6ii2q"]
+[ext_resource type="Texture2D" uid="uid://dfljor1dw536n" path="res://assets/street.png" id="5_7aw3l"]
+[ext_resource type="Texture2D" uid="uid://bx40pfw1jaha3" path="res://assets/Foreground.png" id="5_gql8c"]
+[ext_resource type="PackedScene" uid="uid://by7w3ojik8j56" path="res://enemy.tscn" id="6_xdpsd"]
+[ext_resource type="PackedScene" uid="uid://djotuegxkslim" path="res://boss.tscn" id="7_6ii2q"]
+
+[node name="test_area" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="background" type="Node2D" parent="."]
+position = Vector2(3906, -45)
+
+[node name="Parallax2D" type="Parallax2D" parent="background"]
+physics_interpolation_mode = 1
+scale = Vector2(3, 3)
+scroll_scale = Vector2(0.5, 0.5)
+scroll_offset = Vector2(0, 99)
+repeat_size = Vector2(240, 0)
+repeat_times = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="background/Parallax2D"]
+texture = ExtResource("2_vt2yd")
+
+[node name="Parallax2D2" type="Parallax2D" parent="background"]
+physics_interpolation_mode = 1
+scale = Vector2(3, 3)
+scroll_scale = Vector2(0.6, 0.6)
+scroll_offset = Vector2(0, 99)
+repeat_size = Vector2(240, 0)
+repeat_times = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="background/Parallax2D2"]
+texture = ExtResource("3_xdpsd")
+
+[node name="Parallax2D3" type="Parallax2D" parent="background"]
+physics_interpolation_mode = 1
+scale = Vector2(3, 3)
+scroll_scale = Vector2(0.75, 0.75)
+scroll_offset = Vector2(0, 99)
+repeat_size = Vector2(240, 0)
+repeat_times = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="background/Parallax2D3"]
+texture = ExtResource("4_6ii2q")
+
+[node name="Parallax2D4" type="Parallax2D" parent="background"]
+physics_interpolation_mode = 1
+scale = Vector2(3, 3)
+scroll_scale = Vector2(0.9, 0.9)
+scroll_offset = Vector2(0, 99)
+repeat_size = Vector2(240, 0)
+repeat_times = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="background/Parallax2D4"]
+texture = ExtResource("5_gql8c")
+
+[node name="barriers" type="Node2D" parent="."]
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(3624, -3)
+scale = Vector2(3, 3)
+texture = ExtResource("5_7aw3l")
+
+[node name="player" parent="." instance=ExtResource("1_64fjj")]
+z_index = 1
+position = Vector2(59, 279)
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+limit_left = 0
+limit_top = 0
+limit_right = 7245
+limit_bottom = 360
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.5
+drag_top_margin = 1.0
+drag_right_margin = 0.5
+drag_bottom_margin = 1.0
+
+[node name="enemy" parent="." instance=ExtResource("6_xdpsd")]
+position = Vector2(298, 296)
+
+[node name="boss" parent="." instance=ExtResource("7_6ii2q")]
+position = Vector2(505, 184)

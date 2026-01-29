@@ -3,4 +3,5 @@
 [ext_resource type="Script" uid="uid://b444ybojs8ndt" path="res://flippable_shape.gd" id="1_dwand"]
 
 [node name="flippable_shape" type="CollisionShape2D"]
+debug_color = Color(1, 0, 0, 0.41960785)
 script = ExtResource("1_dwand")

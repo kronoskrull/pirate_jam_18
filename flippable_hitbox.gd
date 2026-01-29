@@ -1,7 +1,9 @@
 extends Area2D
 class_name FlippableHitbox
 
+@export var player: CharacterBody2D
 @export var flippable_sprite:FlippableSprite
+@export var throw_pos_tracker: Node2D
 
 @export var damage: int = 0 : set = set_damage, get = get_damage
 @export var knockback: Vector2 = Vector2(1000, 0) : set = set_knockback, get = get_knockback
@@ -28,3 +30,9 @@ func set_knockback(value: Vector2):
 
 func get_knockback() -> Vector2:
 	return knockback
+
+func connected() -> void:
+	player.hit_landed = true
+
+func grab_landed(enemy) -> void:
+	player.command_grab_landed(enemy)

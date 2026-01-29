@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dijioq58keg5t"]
+
+[ext_resource type="Script" uid="uid://c73hht3owe58c" path="res://flippable_hurtbox.gd" id="1_f5427"]
+
+[node name="hurtbox_component" type="Area2D"]
+script = ExtResource("1_f5427")
