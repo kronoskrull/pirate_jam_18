@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://sat3u8wlvcfn"]
+[gd_scene load_steps=10 format=3 uid="uid://sat3u8wlvcfn"]
 
 [ext_resource type="PackedScene" uid="uid://cct7pd3yo2kxk" path="res://player.tscn" id="1_64fjj"]
 [ext_resource type="Texture2D" uid="uid://dsvk6t0a8pje1" path="res://assets/BG.png" id="2_vt2yd"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bx40pfw1jaha3" path="res://assets/Foreground.png" id="5_gql8c"]
 [ext_resource type="PackedScene" uid="uid://by7w3ojik8j56" path="res://enemy.tscn" id="6_xdpsd"]
 [ext_resource type="PackedScene" uid="uid://djotuegxkslim" path="res://boss.tscn" id="7_6ii2q"]
+[ext_resource type="PackedScene" uid="uid://rhecnptcim0j" path="res://breakable.tscn" id="9_7aw3l"]
 
 [node name="test_area" type="Node2D"]
 
@@ -88,3 +89,6 @@ position = Vector2(298, 296)
 
 [node name="boss" parent="." instance=ExtResource("7_6ii2q")]
 position = Vector2(505, 184)
+
+[node name="breakable" parent="." instance=ExtResource("9_7aw3l")]
+position = Vector2(162, 281)

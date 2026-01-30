@@ -76,6 +76,7 @@ func _physics_process(delta: float) -> void:
 func release(type: String, dir: int) -> void:
 	match type:
 		"launch":
+			held = false
 			if anims.current_animation == "death":
 				queue_death = true
 			anims.stop()

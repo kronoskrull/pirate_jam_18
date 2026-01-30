@@ -93,20 +93,6 @@ func _process(delta: float) -> void:
 		
 		if Input.is_action_just_pressed("pup"):
 			state_chart.send_event("spd")
-		if Input.is_action_just_pressed("pdown"):
-			state_chart.send_event("ddt")
-		if Input.is_action_just_pressed("pleft"):
-			match sprite.flipped:
-				false:
-					state_chart.send_event("suplex")
-				true:
-					state_chart.send_event("fthrow")
-		if Input.is_action_just_pressed("pright"):
-			match sprite.flipped:
-				false:
-					state_chart.send_event("fthrow")
-				true:
-					state_chart.send_event("suplex")
 	
 	
 	if Input.is_action_just_pressed("pattack") and (can_attack or in_command_grab):
@@ -207,15 +193,21 @@ func pummel_finish(dmg: int, launchtype: String) -> void:
 func reset_enemy_grab_pos(type: int) -> void:
 	match type:
 		0:
-			#var x: int = 1 if !sprite.flipped else -1
-			#enemy_grab_pos.position.x *= x
+			var x: int = 1 if !sprite.flipped else -1
+			enemy_grab_pos.position.x *= x
 			if sprite.flipped:
 				sprite.flipped = true
+			else:
 				enemy_grab_pos.current_flip_value = false
 				sprite.sprite_flipped.emit(sprite.flipped)
 		1:
 			var x: int = 1 if !sprite.flipped else -1
 			enemy_grab_pos.position.x *= x
+			if sprite.flipped:
+				sprite.flipped = true
+			else:
+				enemy_grab_pos.current_flip_value = false
+				sprite.sprite_flipped.emit(sprite.flipped)
 
 #region State Events
 

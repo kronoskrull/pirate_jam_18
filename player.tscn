@@ -281,7 +281,7 @@ tracks/1/keys = {
 "args": [],
 "method": &"pummel"
 }, {
-"args": [2],
+"args": [2, "spd"],
 "method": &"pummel_finish"
 }, {
 "args": [1],
@@ -357,6 +357,18 @@ tracks/4/keys = {
 "args": [0],
 "method": &"reset_enemy_grab_pos"
 }]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("enemy_grab_pos:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1.4666684),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(30, -9)]
 }
 
 [sub_resource type="Animation" id="Animation_op7ga"]
