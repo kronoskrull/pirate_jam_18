@@ -665,7 +665,7 @@ _data = {
 &"walk": SubResource("Animation_1jxqw")
 }
 
-[node name="player" type="CharacterBody2D"]
+[node name="player" type="CharacterBody2D" groups=["player"]]
 physics_interpolation_mode = 1
 scale = Vector2(2, 2)
 script = ExtResource("1_onrkg")

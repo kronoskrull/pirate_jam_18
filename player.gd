@@ -35,6 +35,7 @@ var weapon_durability: int
 var vector: Vector2
 var offset_sprite: bool = false
 var cur_special_type: int
+var health = 5
 
 func _ready() -> void:
 	can_move = true

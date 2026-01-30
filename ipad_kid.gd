@@ -50,27 +50,32 @@ func _physics_process(delta: float) -> void:
 	
 	
 	#Approach/Attack
+
 	if (self.global_position.x - player.global_position.x) + (self.global_position.y - player.global_position.y) <= abs(atkRange):
 		attack()
-	
+
+	if ((self.global_position.x - player.global_position.x > 0) && player.sprite.flipped == false) || ((self.global_position.x - player.global_position.x <= 0) && player.sprite.flipped == true):
+		#play with ipad animation thing
+		pass
 	#Up/Down
-	if self.global_position.y - player.global_position.y > 1:
-		#move down
-		global_position.y -= moveSpeed * delta
-		pass
-	elif self.global_position.y - player.global_position.y < -1:
-		#move up
-		global_position.y += moveSpeed * delta
-		pass
-	
-	if self.global_position.x - player.global_position.x > atkRange:
-		#move left
-		global_position.x -= moveSpeed * delta
-		pass
-	elif self.global_position.x - player.global_position.x < -atkRange:
-		#move right
-		global_position.x += moveSpeed * delta
-		pass
+	else:
+		if self.global_position.y - player.global_position.y > 1:
+			#move down
+			global_position.y -= moveSpeed * delta
+			pass
+		elif self.global_position.y - player.global_position.y < -1:
+			#move up
+			global_position.y += moveSpeed * delta
+			pass
+		
+		if self.global_position.x - player.global_position.x > atkRange:
+			#move left
+			global_position.x -= moveSpeed * delta
+			pass
+		elif self.global_position.x - player.global_position.x < -atkRange:
+			#move right
+			global_position.x += moveSpeed * delta
+			pass
 
 
 func release(type: String, dir: int) -> void:
